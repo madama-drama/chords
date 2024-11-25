@@ -1,0 +1,19 @@
+.blockGrid {
+  list-style: none;
+  display: grid;
+  width: 100%;
+}
+
+.default {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.centerWide {
+  grid-template-columns: 1fr 2fr 1fr;
+}
+
+.blockGrid.hideOverflow > * {
+  overflow: hidden;
+  position: relative;
+  z-index: 1;
+}

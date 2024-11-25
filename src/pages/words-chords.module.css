@@ -1,0 +1,178 @@
+/*Для Layout*/
+
+.layout_with_lines {
+  position: absolute;
+  width: 100%;
+  top: 0;
+}
+
+.blockForText{
+  display: flex;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+}
+/**/
+
+.container {
+  background-color: rgba(246, 246, 246, 1);
+  width: 100%;
+  height: 100vh;
+
+  overflow-y: scroll;
+
+}
+
+.container::-webkit-scrollbar {
+  width: 6px;
+}
+.container::-webkit-scrollbar-track {
+  border-radius: 4px;
+  background: rgba(208, 208, 208, 1);
+}
+.container::-webkit-scrollbar-thumb {
+  border-radius: 4px;
+  background: rgba(21, 21, 21, 1);
+}
+
+.titleBlock {
+  display: flex;
+  margin-top: 5%;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.songNumber {
+  font-family: "Involve";
+  font-weight: 500;
+  font-size: 25.5rem;
+
+  margin-left: -18%;
+  z-index: 10;
+}
+
+.positionForCircles {
+  width: 700px;
+  position: relative;
+
+  margin: 0 auto;
+}
+
+.circleBorder {
+  width: 500px;
+  height: 500px;
+  border: solid rgba(208, 208, 208, 1) 1px;
+  border-radius: 50%;
+  position: relative;
+
+  z-index: 10;
+  margin: 0 auto;
+}
+
+.mask {
+  overflow: hidden;
+  height: 290px;
+  width: 250px;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.image {
+  height: 290px;
+  filter: grayscale(100%);
+}
+
+.littleCircleBorder {
+  display: block;
+  height: 100px;
+  width: 100px;
+  background-color: rgba(246, 246, 246, 1);
+
+  position: absolute;
+  border: solid rgba(208, 208, 208, 1) 1px;
+  border-radius: 50%;
+  top: 50%;
+  right:0;
+  transform: translate(-50%, -50%);
+
+  z-index: 30;
+
+  cursor: pointer;
+}
+
+.like {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+.rightBlock {
+  position: relative;
+  z-index: 10;
+}
+
+.title_song_and_songer {
+  height: fit-content;
+  border-left: solid rgba(21, 21, 21, 1) 10px;
+  /* margin-left: 3px; */
+}
+
+.songer {
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 2.6rem;
+  color: rgba(21, 21, 21, 1);
+}
+
+.song {
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 2.6rem;
+  color: rgba(176, 176, 176, 1);
+}
+
+.arrowBack {
+  width: 100px;
+  height: auto;
+
+  margin-top: 20vh;
+  margin-left: 15vw;
+
+  cursor: pointer;
+}
+
+.verticalLine {
+  background-color: rgba(208, 208, 208, 1);
+  min-height: 100vh;
+  width: 1px;
+  z-index: 1;
+
+  margin-left: auto;
+}
+
+.empty{
+  position: relative;
+  z-index: 40;
+}
+
+.footer {
+  width: 100%;
+  height: auto;
+  background-color: rgba(21, 21, 21, 1);
+  margin-top: auto;
+
+  position: relative;
+  z-index: 135;
+}
+
+.footerLogo {
+  font-family: "Involve";
+  font-weight: 500;
+  font-size: 25.1rem;
+  color: rgba(246, 246, 246, 1);
+
+  text-align: center;
+}

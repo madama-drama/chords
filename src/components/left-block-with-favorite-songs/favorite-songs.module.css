@@ -1,0 +1,49 @@
+.zIndex {
+  position: relative;
+  z-index: 10;
+}
+
+.leftBorder {
+  min-height: 160px;
+  border-left: 15px solid rgba(21, 21, 21, 1);
+
+  position: relative;
+  z-index: 10;
+
+  margin-top: 25vh;
+}
+
+.title {
+  all: unset;
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 2.6rem;
+
+  margin-left: 40px;
+}
+
+.layout_with_lines {
+  position: absolute;
+  top: 0;
+}
+
+.verticalLine {
+  background-color: rgba(208, 208, 208, 1);
+  min-height: 100vh;
+  width: 1px;
+  z-index: 8;
+
+  margin-left: auto;
+}
+
+.songerName{
+  font-family: "Involve";
+  font-weight: 500;
+  font-size: 1.4rem;
+  cursor: pointer;
+}
+
+.songName{
+
+}
+

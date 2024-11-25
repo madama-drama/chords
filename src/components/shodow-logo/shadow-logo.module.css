@@ -1,0 +1,15 @@
+.shadowLogo {
+  z-index: 1;
+  color: rgba(241, 241, 241, 1);
+  font-family: "Involve";
+  font-weight: 500;
+  font-size: 20.5rem;
+
+  position: absolute;
+  top: 10vh;
+  left: -3%;
+
+  cursor: default;
+
+  line-height: 100%;
+}

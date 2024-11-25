@@ -1,0 +1,52 @@
+.homeList {
+  list-style: none;
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+}
+
+.title {
+  all: unset;
+  font-family: "Involve";
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-top: 15px;
+  z-index: 999;
+}
+
+.homeTitle {
+  margin-left: 30px;
+}
+
+.chordsHeader[class] {
+  display: flex;
+  justify-content: space-between;
+}
+
+.chordsTitle1 {
+  padding-left: 2%;
+}
+
+.active {
+  color: rgba(21, 21, 21, 1);
+  text-decoration: underline rgba(21, 21, 21, 1);
+}
+
+.passive {
+  color: rgba(21, 21, 21, 1);
+  text-decoration: none;
+}
+
+.cursor {
+  cursor: pointer;
+}
+
+.miniLogo {
+  all: unset;
+  font-family: "Involve";
+  font-size: 1.3rem;
+  font-weight: 700;
+  margin-top: 15px;
+  color: rgba(21, 21, 21, 1);
+
+  padding-right: 2%;
+}

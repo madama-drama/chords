@@ -1,0 +1,45 @@
+.block {
+  background-color: rgba(21, 21, 21, 1);
+  height: 100vh;
+  padding-top: 19px;
+  position: relative;
+}
+
+.title {
+  font-family: "Involve";
+  font-weight: 700;
+  font-size: 20px;
+  color: rgba(246, 246, 246, 1);
+  text-align: end;
+  margin-right: 60px;
+}
+
+.gallery {
+  height: 70%;
+
+  margin-top: 5%;
+  margin-left: 10%;
+
+  position: relative;
+}
+
+.photo {
+  height: auto;
+  width: 11vw;
+  margin-bottom: 6%;
+}
+
+.topPhoto {
+  position: absolute;
+}
+
+.centerPhoto {
+  position: absolute;
+  top: 20vh;
+  right: 7vh;
+}
+
+.downPhoto {
+  position: absolute;
+  top: 40vh;
+}

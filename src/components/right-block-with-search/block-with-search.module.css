@@ -1,0 +1,40 @@
+.block {
+  background-color: rgba(21, 21, 21, 1);
+  height: 100vh;
+  padding-top: 19px;
+  position: relative;
+}
+
+.miniLogo {
+  font-family: "Involve";
+  font-weight: 700;
+  font-size: 20px;
+  color: rgba(246, 246, 246, 1);
+  text-align: end;
+  margin-right: 60px;
+}
+
+.search {
+  width: 80%;
+  min-height: 50px;
+  margin-left: 50px;
+  margin-top: 150px;
+
+  background-color: rgba(21, 21, 21, 1);
+  border: 1px solid rgba(208, 208, 208, 1);
+  border-radius: 300px;
+
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: rgba(176, 176, 176, 1);
+  padding-left: 15px;
+}
+
+.songers{
+  list-style: none;
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 1.4rem;
+  color: rgba(176, 176, 176, 1);
+}

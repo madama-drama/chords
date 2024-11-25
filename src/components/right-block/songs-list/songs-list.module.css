@@ -1,0 +1,58 @@
+.block {
+  height: 100%;
+  width: 100%;
+  background-color: rgba(0, 0, 0, 0.9);
+  position: absolute;
+  top: 0;
+}
+
+.title {
+  all: unset;
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 2rem;
+  color: rgba(246, 246, 246, 1);
+
+  position: absolute;
+  left: 10%;
+  top: 2%;
+}
+
+.closeButton {
+  position: absolute;
+  right: 5%;
+  top: 1.5%;
+  width: auto;
+}
+
+.songerName {
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 3.4rem;
+  color: rgba(246, 246, 246, 1);
+
+  margin-top: 15%;
+  margin-left: 10%;
+}
+
+.list {
+  margin-top: 10%;
+  margin-left: 11%;
+}
+
+.songBlock {
+  display: flex;
+  text-decoration: none;
+  margin-bottom: 1%;
+}
+
+.songItem {
+  color: rgba(246, 246, 246, 1);
+  font-family: "Involve";
+  font-weight: 500;
+  font-size: 1.4rem;
+}
+
+.songMargins {
+  margin-left: 5%;
+}
