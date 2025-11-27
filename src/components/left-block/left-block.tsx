@@ -3,7 +3,6 @@ import { NavLink } from "react-router-dom";
 import cx from "classnames";
 
 import { useDispatch } from "../../services";
-import { songers } from "../../mock-data";
 
 import Style from "./left-block.module.css";
 import { AppHeader } from "../app-header/app-header";
@@ -12,6 +11,7 @@ import { Layout } from "../layout/layout";
 import { openList } from "../right-block/songs-list/store/slice";
 import { numbers_for_song_and_songers } from "../../functions";
 import { ShadowLogo } from "../shodow-logo/shadow-logo";
+import { useSongers } from "../../requests";
 
 export const LeftBlock = () => {
   const dispath = useDispatch();
@@ -19,6 +19,8 @@ export const LeftBlock = () => {
   const onClick = (songerId: number) => {
     dispath(openList(songerId));
   };
+
+  const { data: songers } = useSongers();
 
   const leftSongersList = songers.slice(0, songers.length / 2).map((songer) => (
     <div className={Style.songerBlock} onClick={() => onClick(songer.number)}>
@@ -35,7 +37,9 @@ export const LeftBlock = () => {
     .slice(songers.length / 2, songers.length)
     .map((songer) => (
       <div className={Style.songerBlock} onClick={() => onClick(songer.number)}>
-        <p className={Style.songerItem}>{songer.number}</p>
+        <p className={Style.songerItem}>
+          {numbers_for_song_and_songers(songer.number)}
+        </p>
         <p className={cx(Style.songerItem, Style.songerMargins)}>
           {songer.songer}
         </p>

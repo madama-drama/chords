@@ -15,8 +15,6 @@
   font-weight: 500;
   font-size: 1.4rem;
   color: rgba(21, 21, 21, 1);
-
-  line-height: 60px;
 }
 
 .chordsLine {
@@ -25,7 +23,6 @@
   font-weight: 700;
   font-size: 1.2rem;
 
-  line-height: 60px;
   position: absolute;
   transform: translate(0, -1.5em);
   gap: 10px;
@@ -68,6 +65,7 @@
   font-weight: 500;
   font-size: 3.7rem;
   color: rgba(21, 21, 21, 1);
+  cursor: pointer;
 }
 
 .buttonTitle {
@@ -76,4 +74,3 @@
   font-size: 2rem;
   color: rgba(21, 21, 21, 1);
 }
-

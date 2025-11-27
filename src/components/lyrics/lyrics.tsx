@@ -2,14 +2,15 @@ import React, { FC, useMemo, useState } from "react";
 import cx from "classnames";
 
 import Style from "./lyrics.module.css";
-import { Song } from "../../mock-data";
 import { changeTone_raising } from "./functions";
+import { Song } from "../../types";
 
 interface ILyricsProps {
   song: Song;
 }
 export const Lyrics: FC<ILyricsProps> = ({ song }) => {
   const [font, setFont] = useState(1.4);
+  const [line, setLine] = useState(60);
 
   const [tone, setTone] = useState(0);
 
@@ -23,10 +24,12 @@ export const Lyrics: FC<ILyricsProps> = ({ song }) => {
 
   const fontReduction = () => {
     setFont(font - 0.14);
+    setLine(line - 10);
   };
 
   const fontMagnification = () => {
     setFont(font + 0.14);
+    setLine(line + 10);
   };
 
   const content = useMemo(
@@ -53,18 +56,24 @@ export const Lyrics: FC<ILyricsProps> = ({ song }) => {
         }
 
         return (
-          <div className={Style.content} style={{ fontSize: font + "rem" }}>
+          <div className={Style.content}>
             <h3 className={Style.chorus}>{title}</h3>
-            <p className={Style.chordsLine} >
+            <p
+              className={Style.chordsLine}
+              style={{ fontSize: font + "rem", lineHeight: line + "px" }}
+            >
               {chordsLine}
             </p>
-            <p className={Style.songLine}>
+            <p
+              className={Style.songLine}
+              style={{ fontSize: font + "rem", lineHeight: line + "px" }}
+            >
               {textLine}
             </p>
           </div>
         );
       }),
-    [font, song.text, tone]
+    [font, song.text, tone, line]
   );
 
   return (

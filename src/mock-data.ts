@@ -1,20 +1,4 @@
-export interface Song {
-  name: string;
-  num: number;
-  text?: {
-    type: "Куплет" | "Припев";
-    words: string[];
-    notes: string[][];
-  }[];
-  bridge?: string[];
-}
-
-export interface Songer {
-  songer: string;
-  number: number;
-  songs: Song[];
-  image?: string;
-}
+import { Songer } from "./types";
 
 export const songers: Songer[] = [
   {
@@ -32,8 +16,8 @@ export const songers: Songer[] = [
     number: 2,
     songs: [
       {
-        name: "",
-        num: 0,
+        name: "Беспечный ангел",
+        num: 1,
       },
     ],
   },
@@ -42,8 +26,8 @@ export const songers: Songer[] = [
     number: 3,
     songs: [
       {
-        name: "",
-        num: 0,
+        name: "Ведьм у нас сжигают",
+        num: 1,
       },
     ],
   },

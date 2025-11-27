@@ -1,0 +1,26 @@
+.blockWithSongs{
+  margin-bottom: 60px;
+}
+
+.songerName {
+  font-family: "Involve";
+  font-weight: 600;
+  font-size: 2rem;
+
+  margin-bottom: 14px;
+}
+
+.songString{
+  display: flex;
+  gap: 30px;
+  margin-bottom: 8px;
+
+  text-decoration: none;
+  color: rgba(21, 21, 21, 1)
+}
+
+.song{
+  font-family: "Involve";
+  font-weight: 500;
+  font-size: 1.4rem;
+}

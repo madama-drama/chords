@@ -5,34 +5,58 @@ import Style from "./favorite-songs.module.css";
 import { ShadowLogo } from "../shodow-logo/shadow-logo";
 import { AppHeader } from "../app-header/app-header";
 import { Layout } from "../layout/layout";
-import { IFavoriteSongs } from "../../pages/words-chords";
-import { filterArray } from "./filterArray";
+import { blockSongsAndSonger } from "./blockSongsAndSonger";
+import { useFavoriteSongs } from "../../requests";
 
 export const FavoriteSongs = () => {
-  const stringWithSongs = window.localStorage.getItem("favoriteSongs");
-  const objectsList: IFavoriteSongs[] = JSON.parse(stringWithSongs!);
-  console.log(objectsList);
+  const { data: arrayWithSongs } = useFavoriteSongs();
 
-  const obj = filterArray(objectsList)
+  let obj: Record<string, string[]> = {};
+  arrayWithSongs.forEach((v) => {
+    if (obj[v.nameSonger]) {
+      obj[v.nameSonger].push(v.nameSong);
+    } else {
+      obj[v.nameSonger] = [];
+      obj[v.nameSonger].push(v.nameSong);
+    }
+  });
 
-  console.log('obj', obj)
+  let indexArr = Object.keys(obj);
+  indexArr.sort();
+
+  let leftHalfIndexes = indexArr.slice(0, Math.ceil(indexArr.length / 2));
+  let rigthHalfIndexes = indexArr.slice(
+    Math.ceil(indexArr.length / 2),
+    indexArr.length
+  );
+
+  const leftBlockSongs = blockSongsAndSonger(leftHalfIndexes, obj);
+
+  const rigthBlockSongs = blockSongsAndSonger(rigthHalfIndexes, obj);
 
   return (
-    <div>
+    <div className={Style.leftBlock}>
       <div className={Style.zIndex}>
         <AppHeader page="home" />
       </div>
 
       <ShadowLogo />
 
-      <Layout>
-        <div className={Style.leftBorder}>
-          <h2 className={Style.title}>мои аккорды</h2>
-        </div>
+      <div className={cx(Style.block_with_content)}>
+        <Layout>
+          <div className={Style.leftBorder}>
+            <h2 className={Style.title}>мои аккорды</h2>
+          </div>
 
-        {/* <div>{leftColumn}</div> */}
+          <div className={Style.commonMargin}>{leftBlockSongs}</div>
 
-        {/* <div>{rightColumn}</div> */}
+          <div className={Style.commonMargin}>{rigthBlockSongs}</div>
+        </Layout>
+      </div>
+
+      <Layout classname={Style.layout_with_lines}>
+        <div className={cx(Style.verticalLine)} />
+        <div className={cx(Style.verticalLine)} />
       </Layout>
     </div>
   );

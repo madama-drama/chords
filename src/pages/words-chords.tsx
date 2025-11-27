@@ -1,7 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useState } from "react";
 import cx from "classnames";
 
-import { songers } from "../mock-data";
 import arrowBlack from "../image/arrow-black.svg";
 
 import Style from "./words-chords.module.css";
@@ -12,16 +11,36 @@ import { Layout } from "../components/layout/layout";
 import like from "../image/like.svg";
 import likeActive from "../image/red-like.svg";
 import { Lyrics } from "../components/lyrics/lyrics";
-
-export interface IFavoriteSongs {
-  nameSonger: string;
-  nameSong: string;
-}
+import {
+  useFavoriteSongs,
+  useFavoriteSongsMutation,
+  useSongers,
+} from "../requests";
+import { FavoriteSong } from "../types";
+import { useQueryClient } from "@tanstack/react-query";
 
 export const WordsChords = () => {
   const navigate = useNavigate();
   const { songer, songName } = useParams();
-  const [isLiked, setIsLiked] = useState(false);
+
+  const { data: songers } = useSongers();
+  const { data: favoriteSongs } = useFavoriteSongs();
+  const { mutate: changeFavoriteSongs } = useFavoriteSongsMutation();
+  const queryClient = useQueryClient();
+
+  const [favoriteSongsArray, setFavoriteSongsArray] = useState(favoriteSongs);
+
+  const handleSetFavoriteSongsArray = (newArray: FavoriteSong[]) => {
+    setFavoriteSongsArray(newArray);
+    changeFavoriteSongs(newArray);
+    queryClient.invalidateQueries({ queryKey: ["favoriteSongs"] });
+  };
+
+  const presencingSong = favoriteSongsArray.find(
+    (v) => songer === v.nameSonger && songName === v.nameSong
+  );
+
+  const [isLiked, setIsLiked] = useState(Boolean(presencingSong));
 
   const songerName = songers.find((value) => value.songer === songer)!;
   const song = songers
@@ -31,34 +50,22 @@ export const WordsChords = () => {
   const number = song.num;
   const image = songerName.image;
 
-  useEffect(() => {
-
-  }, []);
-
-  const liked = () => {
-    const favoriteSongsArray: IFavoriteSongs[] = JSON.parse(
-      window.localStorage.getItem(`favoriteSongs`) || "[]"
-    );
-
+  const handleLike = () => {
     if (!isLiked) {
-      setIsLiked(true)
+      setIsLiked(true);
       favoriteSongsArray.push({
         nameSonger: songerName.songer,
         nameSong: song.name,
       });
 
-      window.localStorage.setItem(
-        `favoriteSongs`,
-        JSON.stringify(favoriteSongsArray)
-      );
+      handleSetFavoriteSongsArray(favoriteSongsArray);
     } else {
-      setIsLiked(false)
-      favoriteSongsArray.filter((value) => value.nameSong !== song.name);
-
-      window.localStorage.setItem(
-        `favoriteSongs`,
-        JSON.stringify(favoriteSongsArray)
+      setIsLiked(false);
+      const newArray = favoriteSongsArray.filter(
+        (value) => value.nameSong !== song.name
       );
+
+      handleSetFavoriteSongsArray(newArray);
     }
   };
 
@@ -81,7 +88,10 @@ export const WordsChords = () => {
                 <img src={image} alt="" className={Style.image} />
               </div>
             </div>
-            <button className={cx(Style.littleCircleBorder)} onClick={liked}>
+            <button
+              className={cx(Style.littleCircleBorder)}
+              onClick={handleLike}
+            >
               <img
                 className={Style.like}
                 src={isLiked ? likeActive : like}

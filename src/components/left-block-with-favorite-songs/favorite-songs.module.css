@@ -1,16 +1,28 @@
+.leftBlock {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+}
+
 .zIndex {
   position: relative;
   z-index: 10;
 }
 
+.block_with_content {
+  z-index: 9;
+
+  margin-top: 25vh;
+}
+
 .leftBorder {
   min-height: 160px;
   border-left: 15px solid rgba(21, 21, 21, 1);
+  height: 150px;
 
   position: relative;
   z-index: 10;
 
-  margin-top: 25vh;
 }
 
 .title {
@@ -24,6 +36,7 @@
 
 .layout_with_lines {
   position: absolute;
+  width: 100%;
   top: 0;
 }
 
@@ -36,14 +49,8 @@
   margin-left: auto;
 }
 
-.songerName{
-  font-family: "Involve";
-  font-weight: 500;
-  font-size: 1.4rem;
-  cursor: pointer;
+.commonMargin {
+  margin-left: 30px;
 }
 
-.songName{
-
-}
 
